@@ -34,10 +34,6 @@
             this.tbClienteTableAdapter = new ProjetoContas.contasDataSet1TableAdapters.tbClienteTableAdapter();
             this.tableAdapterManager = new ProjetoContas.contasDataSet1TableAdapters.TableAdapterManager();
             this.tbClienteDataGridView = new System.Windows.Forms.DataGridView();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.txtNome = new System.Windows.Forms.TextBox();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -45,6 +41,11 @@
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtNome = new System.Windows.Forms.TextBox();
+            this.btnSair = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.contasDataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbClienteBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbClienteDataGridView)).BeginInit();
@@ -91,45 +92,7 @@
             this.tbClienteDataGridView.Name = "tbClienteDataGridView";
             this.tbClienteDataGridView.Size = new System.Drawing.Size(1006, 220);
             this.tbClienteDataGridView.TabIndex = 1;
-            this.tbClienteDataGridView.DoubleClick += new System.EventHandler(this.frmPesquisaCliente_Load);
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.panel1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.panel1.Location = new System.Drawing.Point(-4, 56);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1128, 10);
-            this.panel1.TabIndex = 55;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Arial", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(317, 19);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(359, 34);
-            this.label1.TabIndex = 54;
-            this.label1.Text = "PESQUISA DE CLIENTES";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(13, 117);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(53, 20);
-            this.label2.TabIndex = 56;
-            this.label2.Text = "Nome: ";
-            // 
-            // txtNome
-            // 
-            this.txtNome.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNome.Location = new System.Drawing.Point(73, 116);
-            this.txtNome.Name = "txtNome";
-            this.txtNome.Size = new System.Drawing.Size(297, 26);
-            this.txtNome.TabIndex = 57;
-            this.txtNome.TextChanged += new System.EventHandler(this.txtNome_TextChanged);
+            this.tbClienteDataGridView.DoubleClick += new System.EventHandler(this.tbClienteDataGridView_DoubleClick);
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -179,12 +142,61 @@
             this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
             this.dataGridViewTextBoxColumn12.Width = 150;
             // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.panel1.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.panel1.Location = new System.Drawing.Point(-4, 56);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1128, 10);
+            this.panel1.TabIndex = 55;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Arial", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(317, 19);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(359, 34);
+            this.label1.TabIndex = 54;
+            this.label1.Text = "PESQUISA DE CLIENTES";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(13, 117);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(53, 20);
+            this.label2.TabIndex = 56;
+            this.label2.Text = "Nome: ";
+            // 
+            // txtNome
+            // 
+            this.txtNome.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNome.Location = new System.Drawing.Point(73, 116);
+            this.txtNome.Name = "txtNome";
+            this.txtNome.Size = new System.Drawing.Size(297, 26);
+            this.txtNome.TabIndex = 57;
+            this.txtNome.TextChanged += new System.EventHandler(this.txtNome_TextChanged);
+            // 
+            // btnSair
+            // 
+            this.btnSair.Location = new System.Drawing.Point(438, 410);
+            this.btnSair.Name = "btnSair";
+            this.btnSair.Size = new System.Drawing.Size(75, 23);
+            this.btnSair.TabIndex = 58;
+            this.btnSair.Text = "Sair";
+            this.btnSair.UseVisualStyleBackColor = true;
+            this.btnSair.Click += new System.EventHandler(this.btnSair_Click);
+            // 
             // frmPesquisaCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1032, 450);
             this.ControlBox = false;
+            this.Controls.Add(this.btnSair);
             this.Controls.Add(this.txtNome);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.panel1);
@@ -219,5 +231,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtNome;
+        private System.Windows.Forms.Button btnSair;
     }
 }

@@ -153,5 +153,30 @@ namespace ProjetoContas
             //if (e.keyChar < '0' || e.keyChar > '9')
                // e.keyChar = (char)0;
         }
+
+        private void btnImprimir_Click(object sender, EventArgs e)
+        {
+            printPreviewDialog1.ShowDialog();
+        }
+
+        private void btnImprimir_Paint(object sender, PaintEventArgs e)
+        {
+           
+        }
+
+        private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+            string strDados;
+
+            Graphics objImpressao = e.Graphics;
+
+            strDados = "FICHA DE USUÁRIO \n" + (char)10;
+            strDados = strDados + "Código: " + cd_usuarioTextBox.Text + (char)10;
+            strDados = strDados + "Nome: " + nm_usuarioTextBox.Text + (char)10;
+            strDados = strDados + "Nível: " + sg_nivelTextBox.Text + (char)10;
+            strDados = strDados + "Login " + nm_loginTextBox.Text;
+
+            objImpressao.DrawString(strDados, new System.Drawing.Font("Arial", 12, FontStyle.Bold), Brushes.Black, 50, 60);
+        }
     }
 }

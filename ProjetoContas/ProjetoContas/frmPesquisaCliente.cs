@@ -31,15 +31,25 @@ namespace ProjetoContas
             this.tbClienteTableAdapter.Fill(this.contasDataSet1.tbCliente);
 
         }
-        private void tbUsuarioDataGridView_DoubleClick(object sender, EventArgs e)
-        {
-            frmCliente.codigo = int.Parse(tbClienteDataGridView.CurrentRow.Cells[0].Value.ToString());
-            Close();
-        }
+        
 
         private void txtNome_TextChanged(object sender, EventArgs e)
         {
+            if (txtNome.Text == "")
+                tbClienteTableAdapter.Fill(contasDataSet1.tbCliente);
+            else
+                tbClienteTableAdapter.FillByNomeCliente(contasDataSet1.tbCliente, "%" + txtNome.Text + "%");
+        }
 
+        private void btnSair_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void tbClienteDataGridView_DoubleClick(object sender, EventArgs e)
+        {
+            frmCliente.codigo = int.Parse(tbClienteDataGridView.CurrentRow.Cells[0].Value.ToString());
+            Close();
         }
     }
 }
