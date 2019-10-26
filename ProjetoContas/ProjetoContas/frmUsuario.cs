@@ -145,7 +145,7 @@ namespace ProjetoContas
 
         private void frmUsuario_Load(object sender, EventArgs e)
         {
-
+            this.tbUsuarioTableAdapter.Fill(this.contasDataSet.tbUsuario);
         }
 
         private void cd_usuarioTextBox_TextChanged(object sender, EventArgs e)

@@ -43,10 +43,7 @@
             System.Windows.Forms.Label cd_cnpjLabel;
             System.Windows.Forms.Label cd_rgLabel;
             System.Windows.Forms.Label cd_ieLabel;
-            this.contasDataSet1 = new ProjetoContas.contasDataSet1();
-            this.tbFornecedorBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.tbFornecedorTableAdapter = new ProjetoContas.contasDataSet1TableAdapters.tbFornecedorTableAdapter();
-            this.tableAdapterManager = new ProjetoContas.contasDataSet1TableAdapters.TableAdapterManager();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmFornecedor));
             this.cd_fornecedorTextBox = new System.Windows.Forms.TextBox();
             this.nm_fornecedorTextBox = new System.Windows.Forms.TextBox();
             this.ds_enderecoTextBox = new System.Windows.Forms.TextBox();
@@ -73,6 +70,12 @@
             this.btnAnterior = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.tbFornecedorBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.contasDataSet1 = new ProjetoContas.contasDataSet1();
+            this.tbFornecedorTableAdapter = new ProjetoContas.contasDataSet1TableAdapters.tbFornecedorTableAdapter();
+            this.tableAdapterManager = new ProjetoContas.contasDataSet1TableAdapters.TableAdapterManager();
+            this.printDocument = new System.Drawing.Printing.PrintDocument();
+            this.printPreviewDialog = new System.Windows.Forms.PrintPreviewDialog();
             cd_fornecedorLabel = new System.Windows.Forms.Label();
             nm_fornecedorLabel = new System.Windows.Forms.Label();
             ds_enderecoLabel = new System.Windows.Forms.Label();
@@ -87,8 +90,8 @@
             cd_cnpjLabel = new System.Windows.Forms.Label();
             cd_rgLabel = new System.Windows.Forms.Label();
             cd_ieLabel = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.contasDataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbFornecedorBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.contasDataSet1)).BeginInit();
             this.SuspendLayout();
             // 
             // cd_fornecedorLabel
@@ -231,30 +234,6 @@
             cd_ieLabel.TabIndex = 27;
             cd_ieLabel.Text = "IE:";
             // 
-            // contasDataSet1
-            // 
-            this.contasDataSet1.DataSetName = "contasDataSet1";
-            this.contasDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // tbFornecedorBindingSource
-            // 
-            this.tbFornecedorBindingSource.DataMember = "tbFornecedor";
-            this.tbFornecedorBindingSource.DataSource = this.contasDataSet1;
-            // 
-            // tbFornecedorTableAdapter
-            // 
-            this.tbFornecedorTableAdapter.ClearBeforeFill = true;
-            // 
-            // tableAdapterManager
-            // 
-            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
-            this.tableAdapterManager.tbClienteTableAdapter = null;
-            this.tableAdapterManager.tbContasPagarTableAdapter = null;
-            this.tableAdapterManager.tbContasReceberTableAdapter = null;
-            this.tableAdapterManager.tbFornecedorTableAdapter = this.tbFornecedorTableAdapter;
-            this.tableAdapterManager.tbUsuarioTableAdapter = null;
-            this.tableAdapterManager.UpdateOrder = ProjetoContas.contasDataSet1TableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
-            // 
             // cd_fornecedorTextBox
             // 
             this.cd_fornecedorTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tbFornecedorBindingSource, "cd_fornecedor", true));
@@ -263,6 +242,7 @@
             this.cd_fornecedorTextBox.Name = "cd_fornecedorTextBox";
             this.cd_fornecedorTextBox.Size = new System.Drawing.Size(71, 26);
             this.cd_fornecedorTextBox.TabIndex = 2;
+            this.cd_fornecedorTextBox.TextChanged += new System.EventHandler(this.cd_fornecedorTextBox_TextChanged);
             // 
             // nm_fornecedorTextBox
             // 
@@ -413,6 +393,7 @@
             this.btnImprimir.TabIndex = 46;
             this.btnImprimir.Text = "Imprimir";
             this.btnImprimir.UseVisualStyleBackColor = true;
+            this.btnImprimir.Click += new System.EventHandler(this.btnImprimir_Click);
             // 
             // btnPesquisar
             // 
@@ -422,6 +403,7 @@
             this.btnPesquisar.TabIndex = 45;
             this.btnPesquisar.Text = "Pesquisar";
             this.btnPesquisar.UseVisualStyleBackColor = true;
+            this.btnPesquisar.Click += new System.EventHandler(this.btnPesquisar_Click);
             // 
             // btnCancelar
             // 
@@ -512,6 +494,45 @@
             this.panel1.Size = new System.Drawing.Size(665, 10);
             this.panel1.TabIndex = 49;
             // 
+            // tbFornecedorBindingSource
+            // 
+            this.tbFornecedorBindingSource.DataMember = "tbFornecedor";
+            this.tbFornecedorBindingSource.DataSource = this.contasDataSet1;
+            // 
+            // contasDataSet1
+            // 
+            this.contasDataSet1.DataSetName = "contasDataSet1";
+            this.contasDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // tbFornecedorTableAdapter
+            // 
+            this.tbFornecedorTableAdapter.ClearBeforeFill = true;
+            // 
+            // tableAdapterManager
+            // 
+            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.tbClienteTableAdapter = null;
+            this.tableAdapterManager.tbContasPagarTableAdapter = null;
+            this.tableAdapterManager.tbContasReceberTableAdapter = null;
+            this.tableAdapterManager.tbFornecedorTableAdapter = this.tbFornecedorTableAdapter;
+            this.tableAdapterManager.tbUsuarioTableAdapter = null;
+            this.tableAdapterManager.UpdateOrder = ProjetoContas.contasDataSet1TableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            // 
+            // printDocument
+            // 
+            this.printDocument.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument_PrintPage);
+            // 
+            // printPreviewDialog
+            // 
+            this.printPreviewDialog.AutoScrollMargin = new System.Drawing.Size(0, 0);
+            this.printPreviewDialog.AutoScrollMinSize = new System.Drawing.Size(0, 0);
+            this.printPreviewDialog.ClientSize = new System.Drawing.Size(400, 300);
+            this.printPreviewDialog.Document = this.printDocument;
+            this.printPreviewDialog.Enabled = true;
+            this.printPreviewDialog.Icon = ((System.Drawing.Icon)(resources.GetObject("printPreviewDialog.Icon")));
+            this.printPreviewDialog.Name = "printPreviewDialog";
+            this.printPreviewDialog.Visible = false;
+            // 
             // frmFornecedor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -561,8 +582,8 @@
             this.Name = "frmFornecedor";
             this.Text = "Fornecedor";
             this.Load += new System.EventHandler(this.frmFornecedor_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.contasDataSet1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbFornecedorBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.contasDataSet1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -600,5 +621,7 @@
         private System.Windows.Forms.Button btnAnterior;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel1;
+        private System.Drawing.Printing.PrintDocument printDocument;
+        private System.Windows.Forms.PrintPreviewDialog printPreviewDialog;
     }
 }

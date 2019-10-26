@@ -12,6 +12,7 @@ namespace ProjetoContas
 {
     public partial class frmContasReceber : Form
     {
+        public static int codigo;
         private void Habilita()
         {
             //textbox
@@ -149,6 +150,19 @@ namespace ProjetoContas
         private void BtnSair_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void btnPesquisar_Click(object sender, EventArgs e)
+        {
+            int reg;
+            codigo = 0;
+            pesquisaContaReceber fpc = new pesquisaContaReceber();
+            fpc.ShowDialog();
+            if (codigo > 0)
+            {
+                reg = tbContasReceberBindingSource.Find("cd_conta", codigo);
+                tbContasReceberBindingSource.Position = reg;
+            }
         }
     }
 }

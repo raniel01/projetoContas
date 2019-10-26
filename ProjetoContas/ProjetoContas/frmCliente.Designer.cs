@@ -43,9 +43,8 @@
             System.Windows.Forms.Label cd_cnpjLabel;
             System.Windows.Forms.Label cd_rgLabel;
             System.Windows.Forms.Label cd_ieLabel;
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCliente));
             this.cd_clienteTextBox = new System.Windows.Forms.TextBox();
-            this.tbClienteBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.contasDataSet1 = new ProjetoContas.contasDataSet1();
             this.nm_clienteTextBox = new System.Windows.Forms.TextBox();
             this.ds_enderecoTextBox = new System.Windows.Forms.TextBox();
             this.nm_cidadeTextBox = new System.Windows.Forms.TextBox();
@@ -69,10 +68,14 @@
             this.btnNovo = new System.Windows.Forms.Button();
             this.btnProximo = new System.Windows.Forms.Button();
             this.btnAnterior = new System.Windows.Forms.Button();
-            this.tbClienteTableAdapter = new ProjetoContas.contasDataSet1TableAdapters.tbClienteTableAdapter();
-            this.tableAdapterManager = new ProjetoContas.contasDataSet1TableAdapters.TableAdapterManager();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
+            this.printPreviewDialog = new System.Windows.Forms.PrintPreviewDialog();
+            this.printDocument = new System.Drawing.Printing.PrintDocument();
+            this.tbClienteBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.contasDataSet1 = new ProjetoContas.contasDataSet1();
+            this.tbClienteTableAdapter = new ProjetoContas.contasDataSet1TableAdapters.tbClienteTableAdapter();
+            this.tableAdapterManager = new ProjetoContas.contasDataSet1TableAdapters.TableAdapterManager();
             cd_clienteLabel = new System.Windows.Forms.Label();
             nm_clienteLabel = new System.Windows.Forms.Label();
             ds_enderecoLabel = new System.Windows.Forms.Label();
@@ -239,16 +242,7 @@
             this.cd_clienteTextBox.Name = "cd_clienteTextBox";
             this.cd_clienteTextBox.Size = new System.Drawing.Size(85, 26);
             this.cd_clienteTextBox.TabIndex = 1;
-            // 
-            // tbClienteBindingSource
-            // 
-            this.tbClienteBindingSource.DataMember = "tbCliente";
-            this.tbClienteBindingSource.DataSource = this.contasDataSet1;
-            // 
-            // contasDataSet1
-            // 
-            this.contasDataSet1.DataSetName = "contasDataSet1";
-            this.contasDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.cd_clienteTextBox.TextChanged += new System.EventHandler(this.cd_clienteTextBox_TextChanged);
             // 
             // nm_clienteTextBox
             // 
@@ -399,6 +393,7 @@
             this.btnImprimir.TabIndex = 36;
             this.btnImprimir.Text = "Imprimir";
             this.btnImprimir.UseVisualStyleBackColor = true;
+            this.btnImprimir.Click += new System.EventHandler(this.btnImprimir_Click);
             // 
             // btnPesquisar
             // 
@@ -480,20 +475,6 @@
             this.btnAnterior.UseVisualStyleBackColor = true;
             this.btnAnterior.Click += new System.EventHandler(this.btnAnterior_Click);
             // 
-            // tbClienteTableAdapter
-            // 
-            this.tbClienteTableAdapter.ClearBeforeFill = true;
-            // 
-            // tableAdapterManager
-            // 
-            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
-            this.tableAdapterManager.tbClienteTableAdapter = this.tbClienteTableAdapter;
-            this.tableAdapterManager.tbContasPagarTableAdapter = null;
-            this.tableAdapterManager.tbContasReceberTableAdapter = null;
-            this.tableAdapterManager.tbFornecedorTableAdapter = null;
-            this.tableAdapterManager.tbUsuarioTableAdapter = null;
-            this.tableAdapterManager.UpdateOrder = ProjetoContas.contasDataSet1TableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
-            // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
@@ -512,6 +493,45 @@
             this.label1.Size = new System.Drawing.Size(158, 34);
             this.label1.TabIndex = 50;
             this.label1.Text = "CLIENTES";
+            // 
+            // printPreviewDialog
+            // 
+            this.printPreviewDialog.AutoScrollMargin = new System.Drawing.Size(0, 0);
+            this.printPreviewDialog.AutoScrollMinSize = new System.Drawing.Size(0, 0);
+            this.printPreviewDialog.ClientSize = new System.Drawing.Size(400, 300);
+            this.printPreviewDialog.Document = this.printDocument;
+            this.printPreviewDialog.Enabled = true;
+            this.printPreviewDialog.Icon = ((System.Drawing.Icon)(resources.GetObject("printPreviewDialog.Icon")));
+            this.printPreviewDialog.Name = "printPreviewDialog";
+            this.printPreviewDialog.Visible = false;
+            // 
+            // printDocument
+            // 
+            this.printDocument.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument_PrintPage);
+            // 
+            // tbClienteBindingSource
+            // 
+            this.tbClienteBindingSource.DataMember = "tbCliente";
+            this.tbClienteBindingSource.DataSource = this.contasDataSet1;
+            // 
+            // contasDataSet1
+            // 
+            this.contasDataSet1.DataSetName = "contasDataSet1";
+            this.contasDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // tbClienteTableAdapter
+            // 
+            this.tbClienteTableAdapter.ClearBeforeFill = true;
+            // 
+            // tableAdapterManager
+            // 
+            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.tbClienteTableAdapter = this.tbClienteTableAdapter;
+            this.tableAdapterManager.tbContasPagarTableAdapter = null;
+            this.tableAdapterManager.tbContasReceberTableAdapter = null;
+            this.tableAdapterManager.tbFornecedorTableAdapter = null;
+            this.tableAdapterManager.tbUsuarioTableAdapter = null;
+            this.tableAdapterManager.UpdateOrder = ProjetoContas.contasDataSet1TableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
             // frmCliente
             // 
@@ -561,6 +581,7 @@
             this.Controls.Add(this.cd_ieTextBox);
             this.Name = "frmCliente";
             this.Text = "Cliente";
+            this.Load += new System.EventHandler(this.frmCliente_Load);
             ((System.ComponentModel.ISupportInitialize)(this.tbClienteBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.contasDataSet1)).EndInit();
             this.ResumeLayout(false);
@@ -600,5 +621,7 @@
         private System.Windows.Forms.Button btnAnterior;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.PrintPreviewDialog printPreviewDialog;
+        private System.Drawing.Printing.PrintDocument printDocument;
     }
 }

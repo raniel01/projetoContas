@@ -31,5 +31,24 @@ namespace ProjetoContas
             this.tbFornecedorTableAdapter.Fill(this.contasDataSet1.tbFornecedor);
 
         }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            if (textBox1.Text == "")
+                tbFornecedorTableAdapter.Fill(contasDataSet1.tbFornecedor);
+            else
+                tbFornecedorTableAdapter.FillByCnpj(contasDataSet1.tbFornecedor, "%" + textBox1.Text + "%");
+        }
+
+        private void tbFornecedorDataGridView_DoubleClick(object sender, EventArgs e)
+        {
+            frmFornecedor.codigo = int.Parse(tbFornecedorDataGridView.CurrentRow.Cells[0].Value.ToString());
+            Close();
+        }
+
+        private void btnSair_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }

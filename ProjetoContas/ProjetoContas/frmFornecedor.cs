@@ -12,6 +12,7 @@ namespace ProjetoContas
 {
     public partial class frmFornecedor : Form
     {
+        public static int codigo;
         private void Habilita()
         {
             //textbox
@@ -156,6 +157,47 @@ namespace ProjetoContas
         private void ds_enderecoTextBox_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void cd_fornecedorTextBox_TextChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void btnPesquisar_Click(object sender, EventArgs e)
+        {
+            int reg;
+            codigo = 0;
+            frmPesquisarFornecedor fpf = new frmPesquisarFornecedor();
+            fpf.ShowDialog();
+            if (codigo > 0)
+            {
+                reg = tbFornecedorBindingSource.Find("cd_fornecedor", codigo);
+                tbFornecedorBindingSource.Position = reg;
+            }
+        }
+
+        private void btnImprimir_Click(object sender, EventArgs e)
+        {
+            printPreviewDialog.ShowDialog();
+        }
+
+        private void printDocument_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+            string strDados;
+
+            Graphics objImpressao = e.Graphics;
+
+            strDados = "FICHA DE FORNECEDOR \n" + (char)10;
+            strDados = strDados + "Código: " + cd_fornecedorTextBox.Text + (char)10;
+            strDados = strDados + "Nome: " + nm_fornecedorTextBox.Text + (char)10;
+            strDados = strDados + "Endereço: " + ds_enderecoTextBox.Text + (char)10;
+            strDados = strDados + "Bairro: " + nm_bairroTextBox.Text + "    Cidade: " + nm_cidadeTextBox.Text + "/" + sg_estadoTextBox.Text + (char)10;
+            strDados = strDados + "CEP: " + cd_cepTextBox.Text + (char)10;
+            strDados = strDados + "Telefone: " + ds_telefoneTextBox.Text + "    E-mail: " + ds_emailTextBox.Text + (char)10;
+            strDados = strDados + "Tipo: " + sg_tipoTextBox.Text + "   CPF/CNPJ: " + cd_cpfTextBox.Text + cd_cnpjTextBox.Text + "   IE: " + cd_ieTextBox.Text + (char)10;
+
+            objImpressao.DrawString(strDados, new System.Drawing.Font("Arial", 12, FontStyle.Bold), Brushes.Black, 50, 60);
         }
     }
 }
