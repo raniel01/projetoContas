@@ -37,6 +37,7 @@
             System.Windows.Forms.Label dt_pagamentoLabel;
             System.Windows.Forms.Label vl_pagoLabel;
             System.Windows.Forms.Label ds_obsLabel;
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmContasPagar));
             this.contasDataSet1 = new ProjetoContas.contasDataSet1();
             this.tbContasPagarBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tbContasPagarTableAdapter = new ProjetoContas.contasDataSet1TableAdapters.tbContasPagarTableAdapter();
@@ -61,6 +62,8 @@
             this.btnNovo = new System.Windows.Forms.Button();
             this.btnProximo = new System.Windows.Forms.Button();
             this.btnAnterior = new System.Windows.Forms.Button();
+            this.printDocument = new System.Drawing.Printing.PrintDocument();
+            this.printPreviewDialog = new System.Windows.Forms.PrintPreviewDialog();
             cd_contaLabel = new System.Windows.Forms.Label();
             dt_emissaoLabel = new System.Windows.Forms.Label();
             dt_vencimentoLabel = new System.Windows.Forms.Label();
@@ -111,9 +114,9 @@
             vl_contaLabel.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             vl_contaLabel.Location = new System.Drawing.Point(383, 96);
             vl_contaLabel.Name = "vl_contaLabel";
-            vl_contaLabel.Size = new System.Drawing.Size(130, 20);
+            vl_contaLabel.Size = new System.Drawing.Size(103, 20);
             vl_contaLabel.TabIndex = 7;
-            vl_contaLabel.Text = "Valor da contaonta:";
+            vl_contaLabel.Text = "Valor da conta:";
             // 
             // id_fornecedorLabel
             // 
@@ -211,10 +214,10 @@
             // 
             this.vl_contaTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tbContasPagarBindingSource, "vl_conta", true));
             this.vl_contaTextBox.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.vl_contaTextBox.Location = new System.Drawing.Point(519, 96);
+            this.vl_contaTextBox.Location = new System.Drawing.Point(491, 96);
             this.vl_contaTextBox.MaxLength = 15;
             this.vl_contaTextBox.Name = "vl_contaTextBox";
-            this.vl_contaTextBox.Size = new System.Drawing.Size(200, 22);
+            this.vl_contaTextBox.Size = new System.Drawing.Size(228, 22);
             this.vl_contaTextBox.TabIndex = 8;
             this.vl_contaTextBox.TextChanged += new System.EventHandler(this.vl_contaTextBox_TextChanged);
             // 
@@ -299,6 +302,7 @@
             this.btnImprimir.TabIndex = 60;
             this.btnImprimir.Text = "Imprimir";
             this.btnImprimir.UseVisualStyleBackColor = true;
+            this.btnImprimir.Click += new System.EventHandler(this.btnImprimir_Click);
             // 
             // btnPesquisar
             // 
@@ -380,6 +384,21 @@
             this.btnAnterior.UseVisualStyleBackColor = true;
             this.btnAnterior.Click += new System.EventHandler(this.btnAnterior_Click);
             // 
+            // printDocument
+            // 
+            this.printDocument.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument_PrintPage);
+            // 
+            // printPreviewDialog
+            // 
+            this.printPreviewDialog.AutoScrollMargin = new System.Drawing.Size(0, 0);
+            this.printPreviewDialog.AutoScrollMinSize = new System.Drawing.Size(0, 0);
+            this.printPreviewDialog.ClientSize = new System.Drawing.Size(400, 300);
+            this.printPreviewDialog.Document = this.printDocument;
+            this.printPreviewDialog.Enabled = true;
+            this.printPreviewDialog.Icon = ((System.Drawing.Icon)(resources.GetObject("printPreviewDialog.Icon")));
+            this.printPreviewDialog.Name = "printPreviewDialog";
+            this.printPreviewDialog.Visible = false;
+            // 
             // frmContasPagar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -450,5 +469,7 @@
         private System.Windows.Forms.Button btnNovo;
         private System.Windows.Forms.Button btnProximo;
         private System.Windows.Forms.Button btnAnterior;
+        private System.Drawing.Printing.PrintDocument printDocument;
+        private System.Windows.Forms.PrintPreviewDialog printPreviewDialog;
     }
 }

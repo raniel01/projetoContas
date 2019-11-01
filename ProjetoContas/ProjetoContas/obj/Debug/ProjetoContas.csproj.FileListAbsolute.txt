@@ -61,3 +61,4 @@ C:\Users\ranie\Desktop\projetoContas\ProjetoContas\ProjetoContas\obj\Debug\Proje
 C:\Users\ranie\Desktop\projetoContas\ProjetoContas\ProjetoContas\obj\Debug\ProjetoContas.csproj.GenerateResource.cache
 C:\Users\ranie\Desktop\projetoContas\ProjetoContas\ProjetoContas\obj\Debug\ProjetoContas.exe
 C:\Users\ranie\Desktop\projetoContas\ProjetoContas\ProjetoContas\obj\Debug\ProjetoContas.pdb
+C:\Users\ranie\Desktop\projetoContas\ProjetoContas\ProjetoContas\obj\Debug\ProjetoContas.frmPesquisarContasPagar.resources
