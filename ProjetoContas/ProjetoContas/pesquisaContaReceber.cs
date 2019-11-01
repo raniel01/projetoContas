@@ -47,5 +47,16 @@ namespace ProjetoContas
             else
                 tbContasReceberTableAdapter.FillByCliente(contasDataSet1.tbContasReceber,  int.Parse(txtCliente.Text));
         }
+
+        private void tbContasReceberDataGridView_DoubleClick(object sender, EventArgs e)
+        {
+            frmContasReceber.codigo = int.Parse(tbContasReceberDataGridView.CurrentRow.Cells[0].Value.ToString());
+            Close();
+        }
+
+        private void btnSair_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }

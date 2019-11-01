@@ -12,6 +12,8 @@ namespace ProjetoContas
 {
     public partial class frmContasPagar : Form
     {
+
+        public static int codigo;
         private void Habilita()
         {
             //textbox
@@ -175,6 +177,24 @@ namespace ProjetoContas
         private void vl_contaTextBox_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void id_fornecedorTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnPesquisar_Click(object sender, EventArgs e)
+        {
+            int reg;
+            codigo = 0;
+            frmPesquisarContasPagar fpc = new frmPesquisarContasPagar();
+            fpc.ShowDialog();
+            if (codigo > 0)
+            {
+                reg = tbContasPagarBindingSource.Find("cd_conta", codigo);
+                tbContasPagarBindingSource.Position = reg;
+            }
         }
     }
 }

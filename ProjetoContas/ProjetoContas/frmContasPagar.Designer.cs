@@ -227,6 +227,7 @@
             this.id_fornecedorTextBox.Name = "id_fornecedorTextBox";
             this.id_fornecedorTextBox.Size = new System.Drawing.Size(453, 22);
             this.id_fornecedorTextBox.TabIndex = 10;
+            this.id_fornecedorTextBox.TextChanged += new System.EventHandler(this.id_fornecedorTextBox_TextChanged);
             // 
             // dt_pagamentoDateTimePicker
             // 
@@ -307,6 +308,7 @@
             this.btnPesquisar.TabIndex = 59;
             this.btnPesquisar.Text = "Pesquisar";
             this.btnPesquisar.UseVisualStyleBackColor = true;
+            this.btnPesquisar.Click += new System.EventHandler(this.btnPesquisar_Click);
             // 
             // btnCancelar
             // 
