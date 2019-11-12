@@ -77,6 +77,8 @@ namespace ProjetoContas
 
         private void frmContasReceber_Load(object sender, EventArgs e)
         {
+            // TODO: esta linha de código carrega dados na tabela 'contasDataSet1.tbCliRec'. Você pode movê-la ou removê-la conforme necessário.
+            this.tbCliRecTableAdapter.Fill(this.contasDataSet1.tbCliRec);
             // TODO: esta linha de código carrega dados na tabela 'contasDataSet1.tbContasReceber'. Você pode movê-la ou removê-la conforme necessário.
             this.tbContasReceberTableAdapter.Fill(this.contasDataSet1.tbContasReceber);
 
@@ -84,7 +86,8 @@ namespace ProjetoContas
 
         private void id_clienteTextBox_TextChanged(object sender, EventArgs e)
         {
-
+            tbCliRecBindingSource.Filter = "cd_cliente = '" + id_clienteTextBox + "'";
+            tbCliRecTableAdapter.Fill(contasDataSet1.tbCliRec);
         }
 
         private void btnAnterior_Click(object sender, EventArgs e)
