@@ -79,6 +79,8 @@ namespace ProjetoContas
 
         private void frmContasPagar_Load(object sender, EventArgs e)
         {
+            // TODO: esta linha de código carrega dados na tabela 'contasDataSet1.tbForPag'. Você pode movê-la ou removê-la conforme necessário.
+            this.tbForPagTableAdapter.Fill(this.contasDataSet1.tbForPag);
             // TODO: esta linha de código carrega dados na tabela 'contasDataSet1.tbContasPagar'. Você pode movê-la ou removê-la conforme necessário.
             this.tbContasPagarTableAdapter.Fill(this.contasDataSet1.tbContasPagar);
 

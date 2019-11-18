@@ -37,13 +37,13 @@
             this.btnOK = new System.Windows.Forms.Button();
             this.btnSair = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.contasDataSet = new ProjetoContas.contasDataSet();
             this.tbUsuarioBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.contasDataSet = new ProjetoContas.contasDataSet();
             this.tbUsuarioTableAdapter = new ProjetoContas.contasDataSetTableAdapters.tbUsuarioTableAdapter();
             this.tableAdapterManager = new ProjetoContas.contasDataSetTableAdapters.TableAdapterManager();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.contasDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbUsuarioBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.contasDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -126,21 +126,22 @@
             // 
             this.pictureBox1.DataBindings.Add(new System.Windows.Forms.Binding("Image", this.tbUsuarioBindingSource, "cd_usuario", true));
             this.pictureBox1.Image = global::ProjetoContas.Properties.Resources.contabilidade_logo_7C9D34CD75_seeklogo_com;
-            this.pictureBox1.Location = new System.Drawing.Point(286, 56);
+            this.pictureBox1.Location = new System.Drawing.Point(286, 54);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(265, 305);
+            this.pictureBox1.Size = new System.Drawing.Size(254, 305);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBox1.TabIndex = 6;
             this.pictureBox1.TabStop = false;
-            // 
-            // contasDataSet
-            // 
-            this.contasDataSet.DataSetName = "contasDataSet";
-            this.contasDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // tbUsuarioBindingSource
             // 
             this.tbUsuarioBindingSource.DataMember = "tbUsuario";
             this.tbUsuarioBindingSource.DataSource = this.contasDataSet;
+            // 
+            // contasDataSet
+            // 
+            this.contasDataSet.DataSetName = "contasDataSet";
+            this.contasDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // tbUsuarioTableAdapter
             // 
@@ -171,8 +172,8 @@
             this.Text = "LOGIN";
             this.Load += new System.EventHandler(this.frmLogin_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.contasDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbUsuarioBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.contasDataSet)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

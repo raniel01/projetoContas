@@ -190,5 +190,10 @@ namespace ProjetoContas
         {
             printPreviewDialog.ShowDialog();
         }
+
+        private void tbCliRecBindingSource_CurrentChanged(object sender, EventArgs e)
+        {
+            
+        }
     }
 }

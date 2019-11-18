@@ -7,9 +7,12 @@
     }
 }
 
-namespace ProjetoContas.contasDataSet1TableAdapters {
-    
-    
+namespace ProjetoContas.contasDataSet1TableAdapters
+{
+    partial class tbCliRecTableAdapter
+    {
+    }
+
     public partial class tbContasReceberTableAdapter {
     }
 }

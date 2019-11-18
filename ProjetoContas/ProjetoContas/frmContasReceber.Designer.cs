@@ -370,7 +370,7 @@
             // 
             this.nm_clienteTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tbCliRecBindingSource, "nm_cliente", true));
             this.nm_clienteTextBox.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nm_clienteTextBox.Location = new System.Drawing.Point(307, 60);
+            this.nm_clienteTextBox.Location = new System.Drawing.Point(307, 61);
             this.nm_clienteTextBox.Name = "nm_clienteTextBox";
             this.nm_clienteTextBox.Size = new System.Drawing.Size(410, 22);
             this.nm_clienteTextBox.TabIndex = 80;
@@ -390,6 +390,7 @@
             // 
             this.tbCliRecBindingSource.DataMember = "tbCliRec";
             this.tbCliRecBindingSource.DataSource = this.contasDataSet1;
+            this.tbCliRecBindingSource.CurrentChanged += new System.EventHandler(this.tbCliRecBindingSource_CurrentChanged);
             // 
             // contasDataSet1
             // 

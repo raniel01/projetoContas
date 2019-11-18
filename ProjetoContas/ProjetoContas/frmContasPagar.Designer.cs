@@ -64,6 +64,9 @@
             this.btnAnterior = new System.Windows.Forms.Button();
             this.printDocument = new System.Drawing.Printing.PrintDocument();
             this.printPreviewDialog = new System.Windows.Forms.PrintPreviewDialog();
+            this.tbForPagBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.tbForPagTableAdapter = new ProjetoContas.contasDataSet1TableAdapters.tbForPagTableAdapter();
+            this.nm_fornecedorTextBox = new System.Windows.Forms.TextBox();
             cd_contaLabel = new System.Windows.Forms.Label();
             dt_emissaoLabel = new System.Windows.Forms.Label();
             dt_vencimentoLabel = new System.Windows.Forms.Label();
@@ -74,6 +77,7 @@
             ds_obsLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.contasDataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbContasPagarBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbForPagBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // cd_contaLabel
@@ -228,7 +232,7 @@
             this.id_fornecedorTextBox.Location = new System.Drawing.Point(266, 67);
             this.id_fornecedorTextBox.MaxLength = 50;
             this.id_fornecedorTextBox.Name = "id_fornecedorTextBox";
-            this.id_fornecedorTextBox.Size = new System.Drawing.Size(453, 22);
+            this.id_fornecedorTextBox.Size = new System.Drawing.Size(83, 22);
             this.id_fornecedorTextBox.TabIndex = 10;
             this.id_fornecedorTextBox.TextChanged += new System.EventHandler(this.id_fornecedorTextBox_TextChanged);
             // 
@@ -399,12 +403,31 @@
             this.printPreviewDialog.Name = "printPreviewDialog";
             this.printPreviewDialog.Visible = false;
             // 
+            // tbForPagBindingSource
+            // 
+            this.tbForPagBindingSource.DataMember = "tbForPag";
+            this.tbForPagBindingSource.DataSource = this.contasDataSet1;
+            // 
+            // tbForPagTableAdapter
+            // 
+            this.tbForPagTableAdapter.ClearBeforeFill = true;
+            // 
+            // nm_fornecedorTextBox
+            // 
+            this.nm_fornecedorTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tbForPagBindingSource, "nm_fornecedor", true));
+            this.nm_fornecedorTextBox.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nm_fornecedorTextBox.Location = new System.Drawing.Point(356, 67);
+            this.nm_fornecedorTextBox.Name = "nm_fornecedorTextBox";
+            this.nm_fornecedorTextBox.Size = new System.Drawing.Size(363, 22);
+            this.nm_fornecedorTextBox.TabIndex = 62;
+            // 
             // frmContasPagar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(731, 450);
+            this.ClientSize = new System.Drawing.Size(757, 450);
             this.ControlBox = false;
+            this.Controls.Add(this.nm_fornecedorTextBox);
             this.Controls.Add(this.btnSair);
             this.Controls.Add(this.btnImprimir);
             this.Controls.Add(this.btnPesquisar);
@@ -438,6 +461,7 @@
             this.Load += new System.EventHandler(this.frmContasPagar_Load);
             ((System.ComponentModel.ISupportInitialize)(this.contasDataSet1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbContasPagarBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbForPagBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -471,5 +495,8 @@
         private System.Windows.Forms.Button btnAnterior;
         private System.Drawing.Printing.PrintDocument printDocument;
         private System.Windows.Forms.PrintPreviewDialog printPreviewDialog;
+        private System.Windows.Forms.BindingSource tbForPagBindingSource;
+        private contasDataSet1TableAdapters.tbForPagTableAdapter tbForPagTableAdapter;
+        private System.Windows.Forms.TextBox nm_fornecedorTextBox;
     }
 }

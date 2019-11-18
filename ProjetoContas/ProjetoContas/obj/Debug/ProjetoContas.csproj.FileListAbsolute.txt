@@ -3,7 +3,6 @@ C:\Users\aluno1\Desktop\projetoContas\ProjetoContas\ProjetoContas\bin\Debug\cont
 C:\Users\aluno1\Desktop\projetoContas\ProjetoContas\ProjetoContas\bin\Debug\ProjetoContas.exe.config
 C:\Users\aluno1\Desktop\projetoContas\ProjetoContas\ProjetoContas\bin\Debug\ProjetoContas.exe
 C:\Users\aluno1\Desktop\projetoContas\ProjetoContas\ProjetoContas\bin\Debug\ProjetoContas.pdb
-C:\Users\aluno1\Desktop\projetoContas\ProjetoContas\ProjetoContas\obj\Debug\ProjetoContas.csprojAssemblyReference.cache
 C:\Users\aluno1\Desktop\projetoContas\ProjetoContas\ProjetoContas\obj\Debug\ProjetoContas.frmCliente.resources
 C:\Users\aluno1\Desktop\projetoContas\ProjetoContas\ProjetoContas\obj\Debug\ProjetoContas.frmContasPagar.resources
 C:\Users\aluno1\Desktop\projetoContas\ProjetoContas\ProjetoContas\obj\Debug\ProjetoContas.frmContasReceber.resources
@@ -62,3 +61,6 @@ C:\Users\ranie\Desktop\projetoContas\ProjetoContas\ProjetoContas\obj\Debug\Proje
 C:\Users\ranie\Desktop\projetoContas\ProjetoContas\ProjetoContas\obj\Debug\ProjetoContas.exe
 C:\Users\ranie\Desktop\projetoContas\ProjetoContas\ProjetoContas\obj\Debug\ProjetoContas.pdb
 C:\Users\ranie\Desktop\projetoContas\ProjetoContas\ProjetoContas\obj\Debug\ProjetoContas.frmPesquisarContasPagar.resources
+C:\Users\aluno1\Desktop\projetoContas\ProjetoContas\ProjetoContas\obj\Debug\ProjetoContas.frmPesquisarContasPagar.resources
+C:\Users\aluno1\Desktop\projetoContas\ProjetoContas\ProjetoContas\obj\Debug\ProjetoContas.frmPesquisarFornecedor.resources
+C:\Users\aluno1\Desktop\projetoContas\ProjetoContas\ProjetoContas\obj\Debug\ProjetoContas.pesquisaContaReceber.resources
