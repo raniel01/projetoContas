@@ -36,14 +36,14 @@
             this.txtSenha = new System.Windows.Forms.TextBox();
             this.btnOK = new System.Windows.Forms.Button();
             this.btnSair = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tbUsuarioBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.contasDataSet = new ProjetoContas.contasDataSet();
             this.tbUsuarioTableAdapter = new ProjetoContas.contasDataSetTableAdapters.tbUsuarioTableAdapter();
             this.tableAdapterManager = new ProjetoContas.contasDataSetTableAdapters.TableAdapterManager();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.tbUsuarioBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.contasDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -122,17 +122,6 @@
             this.btnSair.UseVisualStyleBackColor = false;
             this.btnSair.Click += new System.EventHandler(this.btnSair_Click);
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.DataBindings.Add(new System.Windows.Forms.Binding("Image", this.tbUsuarioBindingSource, "cd_usuario", true));
-            this.pictureBox1.Image = global::ProjetoContas.Properties.Resources.contabilidade_logo_7C9D34CD75_seeklogo_com;
-            this.pictureBox1.Location = new System.Drawing.Point(286, 54);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(254, 305);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pictureBox1.TabIndex = 6;
-            this.pictureBox1.TabStop = false;
-            // 
             // tbUsuarioBindingSource
             // 
             this.tbUsuarioBindingSource.DataMember = "tbUsuario";
@@ -153,6 +142,15 @@
             this.tableAdapterManager.tbUsuarioTableAdapter = this.tbUsuarioTableAdapter;
             this.tableAdapterManager.UpdateOrder = ProjetoContas.contasDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::ProjetoContas.Properties.Resources.contabilidade_logo_7C9D34CD75_seeklogo_com;
+            this.pictureBox1.Location = new System.Drawing.Point(286, 54);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(263, 310);
+            this.pictureBox1.TabIndex = 4;
+            this.pictureBox1.TabStop = false;
+            // 
             // frmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -171,9 +169,9 @@
             this.Name = "frmLogin";
             this.Text = "LOGIN";
             this.Load += new System.EventHandler(this.frmLogin_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbUsuarioBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.contasDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -188,11 +186,11 @@
         private System.Windows.Forms.TextBox txtSenha;
         private System.Windows.Forms.Button btnOK;
         private System.Windows.Forms.Button btnSair;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private contasDataSet contasDataSet;
         private System.Windows.Forms.BindingSource tbUsuarioBindingSource;
         private contasDataSetTableAdapters.tbUsuarioTableAdapter tbUsuarioTableAdapter;
         private contasDataSetTableAdapters.TableAdapterManager tableAdapterManager;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 

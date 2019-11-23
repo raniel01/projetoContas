@@ -45,6 +45,8 @@
             System.Windows.Forms.Label cd_ieLabel;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCliente));
             this.cd_clienteTextBox = new System.Windows.Forms.TextBox();
+            this.tbClienteBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.contasDataSet1 = new ProjetoContas.contasDataSet1();
             this.nm_clienteTextBox = new System.Windows.Forms.TextBox();
             this.ds_enderecoTextBox = new System.Windows.Forms.TextBox();
             this.nm_cidadeTextBox = new System.Windows.Forms.TextBox();
@@ -72,10 +74,10 @@
             this.label1 = new System.Windows.Forms.Label();
             this.printPreviewDialog = new System.Windows.Forms.PrintPreviewDialog();
             this.printDocument = new System.Drawing.Printing.PrintDocument();
-            this.tbClienteBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.contasDataSet1 = new ProjetoContas.contasDataSet1();
             this.tbClienteTableAdapter = new ProjetoContas.contasDataSet1TableAdapters.tbClienteTableAdapter();
             this.tableAdapterManager = new ProjetoContas.contasDataSet1TableAdapters.TableAdapterManager();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             cd_clienteLabel = new System.Windows.Forms.Label();
             nm_clienteLabel = new System.Windows.Forms.Label();
             ds_enderecoLabel = new System.Windows.Forms.Label();
@@ -198,7 +200,7 @@
             // 
             cd_cpfLabel.AutoSize = true;
             cd_cpfLabel.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            cd_cpfLabel.Location = new System.Drawing.Point(9, 234);
+            cd_cpfLabel.Location = new System.Drawing.Point(9, 264);
             cd_cpfLabel.Name = "cd_cpfLabel";
             cd_cpfLabel.Size = new System.Drawing.Size(39, 20);
             cd_cpfLabel.TabIndex = 20;
@@ -208,7 +210,7 @@
             // 
             cd_cnpjLabel.AutoSize = true;
             cd_cnpjLabel.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            cd_cnpjLabel.Location = new System.Drawing.Point(300, 234);
+            cd_cnpjLabel.Location = new System.Drawing.Point(300, 264);
             cd_cnpjLabel.Name = "cd_cnpjLabel";
             cd_cnpjLabel.Size = new System.Drawing.Size(47, 20);
             cd_cnpjLabel.TabIndex = 22;
@@ -218,7 +220,7 @@
             // 
             cd_rgLabel.AutoSize = true;
             cd_rgLabel.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            cd_rgLabel.Location = new System.Drawing.Point(8, 266);
+            cd_rgLabel.Location = new System.Drawing.Point(8, 296);
             cd_rgLabel.Name = "cd_rgLabel";
             cd_rgLabel.Size = new System.Drawing.Size(32, 20);
             cd_rgLabel.TabIndex = 24;
@@ -228,7 +230,7 @@
             // 
             cd_ieLabel.AutoSize = true;
             cd_ieLabel.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            cd_ieLabel.Location = new System.Drawing.Point(300, 269);
+            cd_ieLabel.Location = new System.Drawing.Point(300, 299);
             cd_ieLabel.Name = "cd_ieLabel";
             cd_ieLabel.Size = new System.Drawing.Size(26, 20);
             cd_ieLabel.TabIndex = 26;
@@ -243,6 +245,16 @@
             this.cd_clienteTextBox.Size = new System.Drawing.Size(85, 26);
             this.cd_clienteTextBox.TabIndex = 1;
             this.cd_clienteTextBox.TextChanged += new System.EventHandler(this.cd_clienteTextBox_TextChanged);
+            // 
+            // tbClienteBindingSource
+            // 
+            this.tbClienteBindingSource.DataMember = "tbCliente";
+            this.tbClienteBindingSource.DataSource = this.contasDataSet1;
+            // 
+            // contasDataSet1
+            // 
+            this.contasDataSet1.DataSetName = "contasDataSet1";
+            this.contasDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // nm_clienteTextBox
             // 
@@ -334,22 +346,24 @@
             this.sg_tipoTextBox.Name = "sg_tipoTextBox";
             this.sg_tipoTextBox.Size = new System.Drawing.Size(69, 26);
             this.sg_tipoTextBox.TabIndex = 19;
+            this.sg_tipoTextBox.TextChanged += new System.EventHandler(this.sg_tipoTextBox_TextChanged);
             // 
             // cd_cpfTextBox
             // 
             this.cd_cpfTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tbClienteBindingSource, "cd_cpf", true));
             this.cd_cpfTextBox.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cd_cpfTextBox.Location = new System.Drawing.Point(54, 231);
+            this.cd_cpfTextBox.Location = new System.Drawing.Point(54, 261);
             this.cd_cpfTextBox.MaxLength = 14;
             this.cd_cpfTextBox.Name = "cd_cpfTextBox";
             this.cd_cpfTextBox.Size = new System.Drawing.Size(240, 26);
             this.cd_cpfTextBox.TabIndex = 21;
+            this.cd_cpfTextBox.TextChanged += new System.EventHandler(this.cd_cpfTextBox_TextChanged);
             // 
             // cd_cnpjTextBox
             // 
             this.cd_cnpjTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tbClienteBindingSource, "cd_cnpj", true));
             this.cd_cnpjTextBox.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cd_cnpjTextBox.Location = new System.Drawing.Point(353, 231);
+            this.cd_cnpjTextBox.Location = new System.Drawing.Point(353, 261);
             this.cd_cnpjTextBox.MaxLength = 18;
             this.cd_cnpjTextBox.Name = "cd_cnpjTextBox";
             this.cd_cnpjTextBox.Size = new System.Drawing.Size(270, 26);
@@ -359,7 +373,7 @@
             // 
             this.cd_rgTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tbClienteBindingSource, "cd_rg", true));
             this.cd_rgTextBox.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cd_rgTextBox.Location = new System.Drawing.Point(46, 263);
+            this.cd_rgTextBox.Location = new System.Drawing.Point(46, 293);
             this.cd_rgTextBox.MaxLength = 15;
             this.cd_rgTextBox.Name = "cd_rgTextBox";
             this.cd_rgTextBox.Size = new System.Drawing.Size(248, 26);
@@ -369,7 +383,7 @@
             // 
             this.cd_ieTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tbClienteBindingSource, "cd_ie", true));
             this.cd_ieTextBox.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cd_ieTextBox.Location = new System.Drawing.Point(332, 266);
+            this.cd_ieTextBox.Location = new System.Drawing.Point(332, 296);
             this.cd_ieTextBox.MaxLength = 15;
             this.cd_ieTextBox.Name = "cd_ieTextBox";
             this.cd_ieTextBox.Size = new System.Drawing.Size(289, 26);
@@ -377,7 +391,7 @@
             // 
             // btnSair
             // 
-            this.btnSair.Location = new System.Drawing.Point(447, 358);
+            this.btnSair.Location = new System.Drawing.Point(447, 388);
             this.btnSair.Name = "btnSair";
             this.btnSair.Size = new System.Drawing.Size(75, 23);
             this.btnSair.TabIndex = 37;
@@ -387,7 +401,7 @@
             // 
             // btnImprimir
             // 
-            this.btnImprimir.Location = new System.Drawing.Point(365, 358);
+            this.btnImprimir.Location = new System.Drawing.Point(365, 388);
             this.btnImprimir.Name = "btnImprimir";
             this.btnImprimir.Size = new System.Drawing.Size(75, 23);
             this.btnImprimir.TabIndex = 36;
@@ -397,7 +411,7 @@
             // 
             // btnPesquisar
             // 
-            this.btnPesquisar.Location = new System.Drawing.Point(283, 357);
+            this.btnPesquisar.Location = new System.Drawing.Point(283, 387);
             this.btnPesquisar.Name = "btnPesquisar";
             this.btnPesquisar.Size = new System.Drawing.Size(75, 23);
             this.btnPesquisar.TabIndex = 35;
@@ -407,7 +421,7 @@
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(201, 358);
+            this.btnCancelar.Location = new System.Drawing.Point(201, 388);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
             this.btnCancelar.TabIndex = 34;
@@ -417,7 +431,7 @@
             // 
             // btnSalvar
             // 
-            this.btnSalvar.Location = new System.Drawing.Point(119, 359);
+            this.btnSalvar.Location = new System.Drawing.Point(119, 389);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(75, 23);
             this.btnSalvar.TabIndex = 33;
@@ -427,7 +441,7 @@
             // 
             // btnExcluir
             // 
-            this.btnExcluir.Location = new System.Drawing.Point(447, 328);
+            this.btnExcluir.Location = new System.Drawing.Point(447, 358);
             this.btnExcluir.Name = "btnExcluir";
             this.btnExcluir.Size = new System.Drawing.Size(75, 23);
             this.btnExcluir.TabIndex = 32;
@@ -437,7 +451,7 @@
             // 
             // btnAlterar
             // 
-            this.btnAlterar.Location = new System.Drawing.Point(365, 327);
+            this.btnAlterar.Location = new System.Drawing.Point(365, 357);
             this.btnAlterar.Name = "btnAlterar";
             this.btnAlterar.Size = new System.Drawing.Size(75, 23);
             this.btnAlterar.TabIndex = 31;
@@ -447,7 +461,7 @@
             // 
             // btnNovo
             // 
-            this.btnNovo.Location = new System.Drawing.Point(283, 328);
+            this.btnNovo.Location = new System.Drawing.Point(283, 358);
             this.btnNovo.Name = "btnNovo";
             this.btnNovo.Size = new System.Drawing.Size(75, 23);
             this.btnNovo.TabIndex = 30;
@@ -457,7 +471,7 @@
             // 
             // btnProximo
             // 
-            this.btnProximo.Location = new System.Drawing.Point(201, 328);
+            this.btnProximo.Location = new System.Drawing.Point(201, 358);
             this.btnProximo.Name = "btnProximo";
             this.btnProximo.Size = new System.Drawing.Size(75, 23);
             this.btnProximo.TabIndex = 29;
@@ -467,7 +481,7 @@
             // 
             // btnAnterior
             // 
-            this.btnAnterior.Location = new System.Drawing.Point(119, 329);
+            this.btnAnterior.Location = new System.Drawing.Point(119, 359);
             this.btnAnterior.Name = "btnAnterior";
             this.btnAnterior.Size = new System.Drawing.Size(75, 23);
             this.btnAnterior.TabIndex = 28;
@@ -509,16 +523,6 @@
             // 
             this.printDocument.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument_PrintPage);
             // 
-            // tbClienteBindingSource
-            // 
-            this.tbClienteBindingSource.DataMember = "tbCliente";
-            this.tbClienteBindingSource.DataSource = this.contasDataSet1;
-            // 
-            // contasDataSet1
-            // 
-            this.contasDataSet1.DataSetName = "contasDataSet1";
-            this.contasDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // tbClienteTableAdapter
             // 
             this.tbClienteTableAdapter.ClearBeforeFill = true;
@@ -533,12 +537,32 @@
             this.tableAdapterManager.tbUsuarioTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = ProjetoContas.contasDataSet1TableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(510, 228);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(113, 13);
+            this.label2.TabIndex = 52;
+            this.label2.Text = "Digite f = pessoa fisica";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(510, 241);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(121, 13);
+            this.label3.TabIndex = 53;
+            this.label3.Text = "Digite j = pessoa juridica";
+            // 
             // frmCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(635, 388);
+            this.ClientSize = new System.Drawing.Size(635, 428);
             this.ControlBox = false;
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnSair);
@@ -623,5 +647,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PrintPreviewDialog printPreviewDialog;
         private System.Drawing.Printing.PrintDocument printDocument;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
     }
 }

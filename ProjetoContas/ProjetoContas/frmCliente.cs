@@ -26,10 +26,7 @@ namespace ProjetoContas
             ds_telefoneTextBox.Enabled = true;
             ds_emailTextBox.Enabled = true;
             sg_tipoTextBox.Enabled = true;
-            cd_cpfTextBox.Enabled = true;
-            cd_cnpjTextBox.Enabled = true;
-            cd_rgTextBox.Enabled = true;
-            cd_ieTextBox.Enabled = true;
+                        
             
             //buttons
             btnSalvar.Enabled = true;
@@ -43,6 +40,21 @@ namespace ProjetoContas
             btnImprimir.Enabled = false;
             btnSair.Enabled = false;
         }
+        private void HabilitaCpf()
+        {
+            cd_cpfTextBox.Enabled = true;
+            cd_rgTextBox.Enabled = true;
+            cd_cnpjTextBox.Enabled = false;
+            cd_ieTextBox.Enabled = false;
+        }
+        private void HabilitaCnpj()
+        {
+            cd_cnpjTextBox.Enabled = true;
+            cd_ieTextBox.Enabled = true;
+            cd_cpfTextBox.Enabled = false;
+            cd_rgTextBox.Enabled = false;
+        }
+
         public void Desabilitar()
         {
             //textbox
@@ -72,6 +84,37 @@ namespace ProjetoContas
             btnPesquisar.Enabled = true;
             btnImprimir.Enabled = true;
             btnSair.Enabled = true;
+        }
+
+        public bool ValidaCpf(string cpf)
+        {
+            bool resp = false;
+            int a = int.Parse(cpf.Substring(0, 1));
+            int b = int.Parse(cpf.Substring(1, 1));
+            int c = int.Parse(cpf.Substring(2, 1));
+            int d = int.Parse(cpf.Substring(3, 1));
+            int e = int.Parse(cpf.Substring(4, 1));
+            int f = int.Parse(cpf.Substring(5, 1));
+            int g = int.Parse(cpf.Substring(6, 1));
+            int h = int.Parse(cpf.Substring(7, 1));
+            int i = int.Parse(cpf.Substring(8, 1));
+            int j = int.Parse(cpf.Substring(9, 1));
+            int k = int.Parse(cpf.Substring(10, 1));
+
+            int s = a * 10 + b * 9 + c * 8 + d * 7 + e * 6 + f * 5 + g * 4 + h * 3 + i * 2;
+            int dig1 = 11 - s % 11;
+
+            dig1 = dig1 > 9 ? 0 : dig1;
+
+            s = a * 11 + b * 10 + c * 9 + d * 8 + e * 7 + f * 6 + g * 5 + h * 4 + i * 3 + j * 2;
+            int dig2 = 11 - s % 11;
+
+            dig2 = dig2 > 9 ? 0 : dig2;
+
+            if (dig1 == j && dig2 == k)
+                resp = true;
+            return resp;
+
         }
         public frmCliente()
         {
@@ -213,5 +256,22 @@ namespace ProjetoContas
         {
             this.tbClienteTableAdapter.Fill(this.contasDataSet1.tbCliente);
         }
+
+        private void cd_cpfTextBox_TextChanged(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void sg_tipoTextBox_TextChanged(object sender, EventArgs e)
+        {
+            if (sg_tipoTextBox.Text == "f")
+            {
+                HabilitaCpf();
+            }else if(sg_tipoTextBox.Text == "j")
+            {
+                HabilitaCnpj();
+            }
+        }
+        
     }
 }
