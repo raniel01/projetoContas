@@ -255,11 +255,12 @@ namespace ProjetoContas
         private void frmCliente_Load(object sender, EventArgs e)
         {
             this.tbClienteTableAdapter.Fill(this.contasDataSet1.tbCliente);
+
         }
 
         private void cd_cpfTextBox_TextChanged(object sender, EventArgs e)
         {
-           
+            
         }
 
         private void sg_tipoTextBox_TextChanged(object sender, EventArgs e)
