@@ -6425,7 +6425,7 @@ SELECT cd_conta, dt_emissao, dt_vencimento, vl_conta, id_cliente, dt_pagamento, 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[3];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT cd_conta, dt_emissao, dt_vencimento, vl_conta, id_cliente, dt_pagamento, v" +
@@ -6433,11 +6433,19 @@ SELECT cd_conta, dt_emissao, dt_vencimento, vl_conta, id_cliente, dt_pagamento, 
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = "SELECT        cd_conta, dt_emissao, dt_vencimento, vl_conta, id_cliente, dt_pagam" +
+            this._commandCollection[1].CommandText = "UPDATE       tbContasReceber\r\nSET                dt_pagamento = @dt_pagamento, vl" +
+                "_pago = @vl_pago\r\nWHERE        (cd_conta = @Original_cd_conta); \r\n";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@dt_pagamento", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Input, 0, 0, "dt_pagamento", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@vl_pago", global::System.Data.SqlDbType.Decimal, 9, global::System.Data.ParameterDirection.Input, 12, 2, "vl_pago", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_cd_conta", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "cd_conta", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[2].Connection = this.Connection;
+            this._commandCollection[2].CommandText = "SELECT        cd_conta, dt_emissao, dt_vencimento, vl_conta, id_cliente, dt_pagam" +
                 "ento, vl_pago, ds_obs\r\nFROM            tbContasReceber\r\nWHERE        (id_cliente" +
                 " = @cliente)";
-            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@cliente", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "id_cliente", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@cliente", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "id_cliente", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -6469,7 +6477,7 @@ SELECT cd_conta, dt_emissao, dt_vencimento, vl_conta, id_cliente, dt_pagamento, 
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
         public virtual int FillByCliente(contasDataSet1.tbContasReceberDataTable dataTable, global::System.Nullable<int> cliente) {
-            this.Adapter.SelectCommand = this.CommandCollection[1];
+            this.Adapter.SelectCommand = this.CommandCollection[2];
             if ((cliente.HasValue == true)) {
                 this.Adapter.SelectCommand.Parameters[0].Value = ((int)(cliente.Value));
             }
@@ -6488,7 +6496,7 @@ SELECT cd_conta, dt_emissao, dt_vencimento, vl_conta, id_cliente, dt_pagamento, 
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
         public virtual contasDataSet1.tbContasReceberDataTable GetDataByCliente(global::System.Nullable<int> cliente) {
-            this.Adapter.SelectCommand = this.CommandCollection[1];
+            this.Adapter.SelectCommand = this.CommandCollection[2];
             if ((cliente.HasValue == true)) {
                 this.Adapter.SelectCommand.Parameters[0].Value = ((int)(cliente.Value));
             }
@@ -6813,6 +6821,42 @@ SELECT cd_conta, dt_emissao, dt_vencimento, vl_conta, id_cliente, dt_pagamento, 
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
         public virtual int Update(global::System.Nullable<global::System.DateTime> dt_emissao, global::System.Nullable<global::System.DateTime> dt_vencimento, global::System.Nullable<decimal> vl_conta, global::System.Nullable<int> id_cliente, global::System.Nullable<global::System.DateTime> dt_pagamento, global::System.Nullable<decimal> vl_pago, string ds_obs, int Original_cd_conta, global::System.Nullable<global::System.DateTime> Original_dt_emissao, global::System.Nullable<global::System.DateTime> Original_dt_vencimento, global::System.Nullable<decimal> Original_vl_conta, global::System.Nullable<int> Original_id_cliente, global::System.Nullable<global::System.DateTime> Original_dt_pagamento, global::System.Nullable<decimal> Original_vl_pago, string Original_ds_obs) {
             return this.Update(dt_emissao, dt_vencimento, vl_conta, id_cliente, dt_pagamento, vl_pago, ds_obs, Original_cd_conta, Original_dt_emissao, Original_dt_vencimento, Original_vl_conta, Original_id_cliente, Original_dt_pagamento, Original_vl_pago, Original_ds_obs, Original_cd_conta);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, false)]
+        public virtual int BaixaPagamento(string dt_pagamento, global::System.Nullable<decimal> vl_pago, int Original_cd_conta) {
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[1];
+            if ((dt_pagamento == null)) {
+                command.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            else {
+                command.Parameters[0].Value = ((string)(dt_pagamento));
+            }
+            if ((vl_pago.HasValue == true)) {
+                command.Parameters[1].Value = ((decimal)(vl_pago.Value));
+            }
+            else {
+                command.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            command.Parameters[2].Value = ((int)(Original_cd_conta));
+            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                command.Connection.Open();
+            }
+            int returnValue;
+            try {
+                returnValue = command.ExecuteNonQuery();
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    command.Connection.Close();
+                }
+            }
+            return returnValue;
         }
     }
     

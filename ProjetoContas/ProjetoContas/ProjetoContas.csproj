@@ -139,6 +139,18 @@
     <Compile Include="frmRemessa.Designer.cs">
       <DependentUpon>frmRemessa.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmRetorno.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmRetorno.Designer.cs">
+      <DependentUpon>frmRetorno.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmSplashScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSplashScreen.Designer.cs">
+      <DependentUpon>frmSplashScreen.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmUsuario.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -185,6 +197,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmRemessa.resx">
       <DependentUpon>frmRemessa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmRetorno.resx">
+      <DependentUpon>frmRetorno.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSplashScreen.resx">
+      <DependentUpon>frmSplashScreen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmUsuario.resx">
       <DependentUpon>frmUsuario.cs</DependentUpon>
@@ -257,6 +275,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>contas.mdf</DependentUpon>
     </Content>
+    <None Include="Resources\contabilidade.jpg" />
     <None Include="Resources\contabilidade-logo-7C9D34CD75-seeklogo.com.png" />
     <None Include="Resources\fundo.jpg" />
   </ItemGroup>

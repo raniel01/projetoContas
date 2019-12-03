@@ -38,8 +38,8 @@
             this.tbContasReceberBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tbContasReceberTableAdapter = new ProjetoContas.contasDataSet1TableAdapters.tbContasReceberTableAdapter();
             this.tableAdapterManager = new ProjetoContas.contasDataSet1TableAdapters.TableAdapterManager();
-            this.tbClienteBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tbClienteTableAdapter = new ProjetoContas.contasDataSet1TableAdapters.tbClienteTableAdapter();
+            this.tbClienteBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.contasDataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbContasReceberBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbClienteBindingSource)).BeginInit();
@@ -116,20 +116,20 @@
             this.tableAdapterManager.tbUsuarioTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = ProjetoContas.contasDataSet1TableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
+            // tbClienteTableAdapter
+            // 
+            this.tbClienteTableAdapter.ClearBeforeFill = true;
+            // 
             // tbClienteBindingSource
             // 
             this.tbClienteBindingSource.DataMember = "tbCliente";
             this.tbClienteBindingSource.DataSource = this.contasDataSet1;
             // 
-            // tbClienteTableAdapter
-            // 
-            this.tbClienteTableAdapter.ClearBeforeFill = true;
-            // 
             // frmRemessa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(337, 207);
+            this.ClientSize = new System.Drawing.Size(343, 207);
             this.ControlBox = false;
             this.Controls.Add(this.btnSair);
             this.Controls.Add(this.dtpInicial);

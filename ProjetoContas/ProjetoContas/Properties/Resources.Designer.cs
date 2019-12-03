@@ -63,6 +63,16 @@ namespace ProjetoContas.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap contabilidade {
+            get {
+                object obj = ResourceManager.GetObject("contabilidade", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap contabilidade_logo_7C9D34CD75_seeklogo_com {
             get {
                 object obj = ResourceManager.GetObject("contabilidade-logo-7C9D34CD75-seeklogo.com", resourceCulture);

@@ -68,10 +68,40 @@ namespace ProjetoContas
 
         private string NossoNumero(string nm)
         {
+            string dig;
             nm = "19" + nm;
 
+            int a = int.Parse(nm.Substring(0, 1));
+            int b = int.Parse(nm.Substring(1, 1));
+            int c = int.Parse(nm.Substring(2, 1));
+            int d = int.Parse(nm.Substring(3, 1));
+            int e = int.Parse(nm.Substring(4, 1));
+            int f = int.Parse(nm.Substring(5, 1));
+            int g = int.Parse(nm.Substring(6, 1));
+            int h = int.Parse(nm.Substring(7, 1));
+            int i = int.Parse(nm.Substring(8, 1));
+            int j = int.Parse(nm.Substring(9, 1));
+            int k = int.Parse(nm.Substring(10, 1));
+            int l = int.Parse(nm.Substring(11, 1));
+            int m = int.Parse(nm.Substring(12, 1));
 
-            nm = nm+dig;
+            int s = a * 2 + b * 7 + c * 6 + d * 5 + e * 4 + f * 3 + g * 2 + h * 7 + i * 6 + j * 5 + k * 4 + l * 3 + m * 2;
+
+            int res = s % 11;
+
+            if (res == 1)
+            {
+                 dig = "P";
+            } else if(res == 0)
+            {
+                dig = "0";
+            }
+            else
+            {
+                res = 11 - res;
+                dig = res.ToString();
+            }
+            nm = nm + dig;
             return nm.Substring(2, 12);
         }
         private void tbContasReceberBindingNavigatorSaveItem_Click(object sender, EventArgs e)
