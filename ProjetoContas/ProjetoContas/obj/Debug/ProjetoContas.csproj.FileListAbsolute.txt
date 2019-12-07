@@ -90,3 +90,7 @@ C:\Users\aluno3\Desktop\projetoContas\ProjetoContas\ProjetoContas\bin\Debug\cont
 C:\Users\aluno3\Desktop\projetoContas\ProjetoContas\ProjetoContas\bin\Debug\ProjetoContas.exe.config
 C:\Users\aluno3\Desktop\projetoContas\ProjetoContas\ProjetoContas\bin\Debug\ProjetoContas.exe
 C:\Users\aluno3\Desktop\projetoContas\ProjetoContas\ProjetoContas\bin\Debug\ProjetoContas.pdb
+C:\Users\aluno1\Desktop\projetoContas\ProjetoContas\ProjetoContas\obj\Debug\ProjetoContas.csprojAssemblyReference.cache
+C:\Users\aluno1\Desktop\projetoContas\ProjetoContas\ProjetoContas\obj\Debug\ProjetoContas.frmRemessa.resources
+C:\Users\aluno1\Desktop\projetoContas\ProjetoContas\ProjetoContas\obj\Debug\ProjetoContas.frmRetorno.resources
+C:\Users\aluno1\Desktop\projetoContas\ProjetoContas\ProjetoContas\obj\Debug\ProjetoContas.frmSplashScreen.resources

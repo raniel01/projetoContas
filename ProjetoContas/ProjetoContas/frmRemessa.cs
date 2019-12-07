@@ -120,5 +120,10 @@ namespace ProjetoContas
             this.tbContasReceberTableAdapter.Fill(this.contasDataSet1.tbContasReceber);
 
         }
+
+        private void btnSair_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }
